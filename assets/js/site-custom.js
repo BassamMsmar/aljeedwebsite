@@ -129,7 +129,7 @@ $(document).ready(function () {
     // Open Video
     jQuery('.play-video').on('click', function (e) {
         var videoContainer = jQuery('.video-box');
-        videoContainer.prepend('<iframe src="http://player.vimeo.com/video/7449107" width="500" height="281" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+        videoContainer.prepend('<iframe width="420" height="315" src="/assets/aljeed-vid.webm"> </iframe>');
         videoContainer.fadeIn(300);
         e.preventDefault();
     });
