@@ -2361,6 +2361,11 @@ input:-webkit-autofill:active
     font-weight: 300;
     line-height: 2;
 }
+.bg-with-text p{
+    background-color: #E37D1A;
+    color: #24547f;
+    
+}
 .video-popup{
     padding: 11rem 0;
     margin-bottom: -100px;
@@ -3960,4 +3965,14 @@ label.error {
 }
 .form-control:disabled, .form-control[readonly] {
     opacity: 0.6;
+}
+
+.title-slider{
+    background-image: linear-gradient(to right, rgba(0,255,0,0),#E37D1A);
+    border-radius: 5px;
+}
+
+.title-slider-h{
+    background-color: #E37D1A;
+    color: #24547f;
 }

@@ -4733,3 +4733,8 @@ label.error {
 .form-control[readonly] {
     opacity: 0.6;
 }
+
+.title-slider{
+    background-image: linear-gradient(to right, rgba(0,255,0,0),#E37D1A);
+    border-radius: 5px;
+}
