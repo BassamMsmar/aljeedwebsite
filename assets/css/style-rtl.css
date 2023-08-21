@@ -7,8 +7,8 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 550;
     color: #999;
     line-height: 1.7;
     overflow-x: hidden;
@@ -4378,6 +4378,8 @@ footer .social-icons a:hover {
 }
 
 .breadcrumbs-description {
+    font-size: 1.2rem;
+    font-weight: 600;
     padding: 0.75rem 1.5rem;
     color: #FFF;
     border-right: 2px solid var(--primary-color);
@@ -4738,3 +4740,4 @@ label.error {
     background-image: linear-gradient(to right, rgba(0,255,0,0),#E37D1A);
     border-radius: 5px;
 }
+
