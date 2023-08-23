@@ -13,7 +13,7 @@ html {
 }
 body {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #999;
     line-height: 1.7;
@@ -3969,6 +3969,11 @@ label.error {
 
 .title-slider{
     background-image: linear-gradient(to right, rgba(0,255,0,0),#E37D1A);
+    border-radius: 5px;
+}
+
+.title-slider-rtl{
+    background-image: linear-gradient(to left, rgba(0,255,0,0),#E37D1A);
     border-radius: 5px;
 }
 
