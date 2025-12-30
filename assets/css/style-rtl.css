@@ -3875,7 +3875,7 @@ footer .social-icons a:hover {
         top: 0;
         width: 100%;
         z-index: 1009;
-        box-shadow: var(--shadow-primary);
+        box-shadow: var(--bg-light-gray);
     }
 
     .header-fullpage.fixed .top-bar {

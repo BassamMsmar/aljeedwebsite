@@ -3,14 +3,21 @@
 /* 1. Typography */
 :root {
     --font-primary: 'Cairo', sans-serif;
-    --primary-color: #fe8704;
-    /* Keep brand color but maybe refine usage */
+    /* --primary-color: #fe8704; Old Bright Orange */
+    --primary-color: #E67E22;
+    /* Softer, Modern "Carrot" Orange */
+
+    /* --secondary-color: #1a2b4c; Old Navy */
     --secondary-color: #1a2b4c;
-    /* Deeper Navy Blue for more official look */
-    --text-color: #333;
-    --bg-light: #f8f9fa;
-    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
-    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1);
+    /* Kept Dark Blue, it is professional */
+
+    --text-color: #444;
+    /* Softer Text (was #333) */
+    --bg-light: #f4f6f9;
+    /* Blue-tinted refined gray background */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.08);
+    /* Lighter shadow */
     --radius-md: 12px;
     --radius-sm: 8px;
 }
@@ -159,33 +166,357 @@ footer {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s;
-}
 
-.social-icons a:hover {
-    background: var(--primary-color);
-    color: #fff;
-}
+    /* --- Radical Redesign: Hero Section --- */
+    .hero-section {
+        position: relative;
+        height: 100vh;
+        /* Full Screen */
+        min-height: 600px;
+        background-image: url('../images/bg_6.jpg');
+        /* Using a high quality existing image */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        /* Parallax effect */
+        color: #fff;
+        margin-top: -80px;
+        /* Pull up behind transparent header if needed, or adjust based on header height */
+        padding-top: 80px;
+    }
 
-/* 8. Form Elements */
-.form-control {
-    border-radius: var(--radius-sm);
-    padding: 15px;
-    border: 1px solid #eee;
-    background-color: #fcfcfc;
-}
+    .overlay-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(6, 22, 58, 0.9) 0%, rgba(6, 22, 58, 0.7) 100%);
+        z-index: 1;
+    }
 
-.form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(254, 135, 4, 0.1);
-    background-color: #fff;
-}
+    .hero-title {
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        color: #fff;
+    }
 
-/* 9. Utilities */
-.rounded-field {
+    .hero-description {
+        font-size: 1.3rem;
+        font-weight: 400;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #e0e0e0;
+    }
+
+    .btn-lg {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        border-radius: 50px;
+    }
+
+    .btn-outline-white {
+        border: 2px solid #fff;
+        color: #fff !important;
+        background: transparent;
+    }
+
+    .btn-outline-white:hover {
+        background: #fff;
+        color: var(--secondary-color) !important;
+    }
+
+    /* Responsive Hero */
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .h4-md {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    /* 5. Buttons */
+    .btn-theme {
+        border-radius: var(--radius-sm);
+        padding: 12px 30px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .btn-theme:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(230, 126, 34, 0.4);
+    }
+
+    .btn-theme.bg-orange {
+        background: linear-gradient(45deg, var(--primary-color), #d35400);
+    }
+
+    /* 6. Sections & Spacing */
+    .wide-tb-100 {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .bg-light-gray {
+        background-color: var(--bg-light) !important;
+    }
+
+    /* 7. Footer */
+    footer {
+        background-color: #152036 !important;
+        /* Darker footer */
+        color: #ccc;
+    }
+
+    .footer-heading {
+        color: #fff;
+        border-bottom: 2px solid var(--primary-color);
+        display: inline-block;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .social-icons a {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s;
+    }
+
+    .social-icons a:hover {
+        background: var(--primary-color);
+        color: #fff;
+    }
+
+    /* 8. Form Elements */
+    .form-control {
+        border-radius: var(--radius-sm);
+        padding: 15px;
+        border: 1px solid #eee;
+        background-color: #fcfcfc;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        background-color: #fff;
+    }
+
+    /* 9. Utilities */
+    .rounded-field {
+        border-radius: var(--radius-md);
+        overflow: hidden;
+    }
+
+    /* 10. Responsive Tweaks */
+    @media (max-width: 768px) {
+        .breadcrumbs-page h1 {
+            font-size: 2.5rem;
+        }
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        left: 40px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+        background-color: #128c7e;
+        color: #FFF;
+        transform: scale(1.1);
+    }
+
+    .whatsapp-float i {
+        margin-top: 2px;
+    }
+
+    /* --- Radical Redesign: Hero Section --- */
+    .hero-section {
+        position: relative;
+        height: 100vh;
+        /* Full Screen */
+        min-height: 600px;
+        background-image: url('../images/bg_6.jpg');
+        /* Using a high quality existing image */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        /* Parallax effect */
+        color: #fff;
+        margin-top: -80px;
+        /* Pull up behind transparent header if needed, or adjust based on header height */
+        padding-top: 80px;
+    }
+
+    .overlay-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(6, 22, 58, 0.9) 0%, rgba(6, 22, 58, 0.7) 100%);
+        z-index: 1;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        color: #fff;
+    }
+
+    .hero-description {
+        font-size: 1.3rem;
+        font-weight: 400;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #e0e0e0;
+    }
+
+    .btn-lg {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        border-radius: 50px;
+    }
+
+    .btn-outline-white {
+        border: 2px solid #fff;
+        color: #fff !important;
+        background: transparent;
+    }
+
+    .btn-outline-white:hover {
+        background: #fff;
+        color: var(--secondary-color) !important;
+    }
+
+    /* Responsive Hero */
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+        }
+
+        .hero-section {
+            height: auto;
+            padding: 150px 0 100px 0;
+        }
+    }
+
+    /* --- Radical Redesign: Services Section --- */
+    .service-card-modern {
+        background: #fff;
+        padding: 30px 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: all 0.4s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 3px solid transparent;
+    }
+
+    .service-card-modern:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-bottom-color: var(--primary-color);
+    }
+
+    .service-card-modern .icon-wrapper {
+        width: 80px;
+        height: 80px;
+        background: rgba(230, 126, 34, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        transition: all 0.4s ease;
+    }
+
+    .service-card-modern:hover .icon-wrapper {
+        background: var(--primary-color);
+    }
+
+    .service-card-modern .icon-wrapper i {
+        font-size: 35px;
+        color: var(--primary-color);
+        transition: all 0.4s ease;
+    }
+
+    .service-card-modern:hover .icon-wrapper i {
+        color: #fff;
+    }
+
+    .service-card-modern h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: var(--secondary-color);
+    }
+
+    .service-card-modern p {
+        color: #666;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+    }
+
+    .service-card-modern .read-more {
+        color: var(--primary-color);
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+
+    .service-card-modern:hover .read-more {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     border-radius: var(--radius-md);
     overflow: hidden;
 }
@@ -200,21 +531,55 @@ footer {
 /* Floating WhatsApp Button */
 .whatsapp-float {
     position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
+    width: 50px;
+    height: 50px;
+    bottom: 85px;
+    /* 25px (Top button) + 50px (Space) + 10px (Gap) */
+    /* Raised to sit ABOVE the Back to Top button */
     left: 40px;
     background-color: #25d366;
     color: #FFF;
     border-radius: 50px;
     text-align: center;
-    font-size: 30px;
+    font-size: 26px;
+    /* Slightly smaller icon to fit 50px box */
     box-shadow: 2px 2px 3px #999;
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+}
+
+/* Back To Top Override (Ensure it sits below WhatsApp) */
+#mkdf-back-to-top {
+    position: fixed !important;
+    bottom: 25px !important;
+    left: 40px !important;
+    /* Align with WhatsApp */
+    right: auto !important;
+    /* Force Left Alignment if it was right */
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#mkdf-back-to-top.on {
+    opacity: 1;
+    visibility: visible;
+}
+
+#mkdf-back-to-top:hover {
+    background: var(--primary-color);
+    transform: translateY(-5px);
 }
 
 .whatsapp-float:hover {
@@ -226,3 +591,606 @@ footer {
 .whatsapp-float i {
     margin-top: 2px;
 }
+
+/* --- Radical Redesign: Hero Section --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    /* Full Screen */
+    min-height: 600px;
+    background-image: url('../images/bg_6.jpg');
+    /* Using a high quality existing image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax effect */
+    color: #fff;
+    margin-top: -80px;
+    /* Pull up behind transparent header if needed, or adjust based on header height */
+    padding-top: 80px;
+}
+
+.overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(6, 22, 58, 0.9) 0%, rgba(6, 22, 58, 0.7) 100%);
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.hero-description {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #e0e0e0;
+}
+
+.btn-lg {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+}
+
+.btn-outline-white {
+    border: 2px solid #fff;
+    color: #fff !important;
+    background: transparent;
+}
+
+.btn-outline-white:hover {
+    background: #fff;
+    color: var(--secondary-color) !important;
+}
+
+/* Responsive Hero */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+
+    .hero-section {
+        height: auto;
+        padding: 150px 0 100px 0;
+    }
+}
+
+/* --- Radical Redesign: Services Section --- */
+.service-card-modern {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: all 0.4s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid transparent;
+}
+
+.service-card-modern:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-bottom-color: var(--primary-color);
+}
+
+.service-card-modern .icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: rgba(230, 126, 34, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: all 0.4s ease;
+}
+
+.service-card-modern:hover .icon-wrapper {
+    background: var(--primary-color);
+}
+
+.service-card-modern .icon-wrapper i {
+    font-size: 35px;
+    color: var(--primary-color);
+    transition: all 0.4s ease;
+}
+
+.service-card-modern:hover .icon-wrapper i {
+    color: #fff;
+}
+
+.service-card-modern h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.service-card-modern p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.service-card-modern .read-more {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.service-card-modern:hover .read-more {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card-modern .read-more i {
+    margin-right: 5px;
+    transition: margin-right 0.3s ease;
+}
+
+.service-card-modern .read-more:hover i {
+    margin-right: 10px;
+}
+
+/* --- Radical Redesign: Why Choose Us --- */
+.feature-list-modern li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.feature-list-modern li:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.feature-list-modern .icon-box {
+    width: 40px;
+    height: 40px;
+    background: rgba(230, 126, 34, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.feature-list-modern .text {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+/* --- Radical Redesign: Stats Section --- */
+.counter-style-1 {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.counter-style-1:hover {
+    transform: translateY(-5px);
+}
+
+.counter-style-1 p i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.counter-style-1 .counter {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+}
+
+
+/* --- Radical Redesign: Footer --- */
+.footer-dark {
+    background-color: #06163a;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.footer-heading-modern {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.footer-heading-modern::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.footer-links-modern {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-modern li {
+    margin-bottom: 12px;
+}
+
+.footer-links-modern li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links-modern li a:hover {
+    color: var(--primary-color);
+    transform: translateX(-5px);
+}
+
+.footer-contact-modern {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact-modern li {
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+}
+
+.footer-contact-modern li i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.social-icons-modern a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-icons-modern a:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.copyright-bar {
+    background-color: #04102b;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* --- LTR Overrides for English Version --- */
+html[dir="ltr"] .feature-list-modern .icon-box {
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+html[dir="ltr"] .service-card-modern .read-more i {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+html[dir="ltr"] .service-card-modern .read-more:hover i {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+html[dir="ltr"] .footer-contact-modern li i {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+html[dir="ltr"] .social-icons-modern a {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+html[dir="ltr"] .footer-heading-modern::after {
+    right: auto;
+    left: 0;
+}
+
+html[dir="ltr"] .hero-section {
+    text-align: left;
+}
+
+html[dir="ltr"] .heading-main {
+    text-align: left;
+}
+
+
+html[dir="ltr"] .text-start {
+    text-align: left !important;
+}
+
+/* --- Fixed Glassmorphism Header (iPhone Style) --- */
+header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.90) !important;
+    /* 10% Transparency */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* --- Reduced Navbar Size --- */
+header .navbar-brand {
+    padding: 5px 0 !important;
+    width: 120px !important;
+    margin-right: 0 !important;
+}
+
+header .navbar-brand img {
+    max-height: 45px !important;
+    width: auto;
+}
+
+header .navbar {
+    padding: 0 15px !important;
+    min-height: 60px !important;
+    background: rgba(255, 255, 255, 0.90) !important;
+}
+
+header .navbar-nav .nav-link {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    color: var(--secondary-color) !important;
+}
+
+header .top-bar {
+    padding: 2px 0 !important;
+    font-size: 0.8rem !important;
+    background: transparent !important;
+    color: #555 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+header .top-bar i {
+    font-size: 0.9rem !important;
+}
+
+/* --- Split Hero Section (New Redesign) --- */
+.split-hero-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    /* Reduced from 100vh */
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding-top: 60px;
+    /* Reduced from 80px */
+}
+
+.split-hero-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: calc(80vh - 60px);
+}
+
+.split-hero-content {
+    flex: 0 0 50%;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 50px;
+    /* Reduced from 60px 80px */
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    z-index: 2;
+}
+
+.split-hero-image {
+    flex: 0 0 50%;
+    max-width: 50%;
+    position: relative;
+    min-height: 400px;
+    /* Reduced from 500px */
+    overflow: hidden;
+}
+
+.split-hero-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 10s ease;
+}
+
+.split-hero-image:hover img {
+    transform: scale(1.1);
+}
+
+.split-hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+/* RTL Specific Title Style */
+html[dir="rtl"] .split-hero-title {
+    font-family: 'Cairo', sans-serif;
+}
+
+.split-hero-highlight {
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.split-hero-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 115, 0, 0.2);
+    z-index: -1;
+}
+
+.split-hero-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    max-width: 90%;
+}
+
+.hero-features {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 3rem;
+}
+
+.hero-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+.hero-feature-item i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .split-hero-section {
+        padding-top: 60px;
+        height: auto;
+        min-height: auto;
+        display: block;
+    }
+
+    .split-hero-grid {
+        flex-direction: column-reverse;
+        min-height: auto;
+    }
+
+    .split-hero-content,
+    .split-hero-image {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .split-hero-image {
+        height: 400px;
+        min-height: 400px;
+    }
+
+    .split-hero-content {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .split-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .split-hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-features {
+        justify-content: center;
+    }
+
+    .d-flex.gap-3 {
+        justify-content: center;
+    }
+}
+
+/* --- Soft Gradient Backgrounds (No Images) --- */
+.bg-fixed,
+.clients-bg,
+.callout-style-1,
+.bg-img-6,
+#whyaljeed {
+    background-image: none !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%) !important;
+}
+
+.bg-overlay {
+    display: none !important;
+    /* Remove dark overlays since we now have light backgrounds */
+}
+
+/* Specific text color adjustments for new light backgrounds */
+.callout-style-1 h4,
+.callout-style-1 .center-text {
+    color: var(--secondary-color) !important;
+}
+
+.counter-style-1 p {
+    color: var(--primary-color) !important;
+}
+
+/* Ensure Why Us image column is handled if transparency is desired there too */
+/* #whyaljeed img { opacity: 1; } */
