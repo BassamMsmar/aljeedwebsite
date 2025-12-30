@@ -136,6 +136,15 @@ h6 {
     background: linear-gradient(45deg, var(--primary-color), #ff9f35);
 }
 
+.btn-theme.bg-green {
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    color: #fff !important;
+}
+
+.btn-theme.bg-green:hover {
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
 /* 6. Sections & Spacing */
 .wide-tb-100 {
     padding-top: 100px;
@@ -318,6 +327,41 @@ footer {
         border-color: var(--primary-color);
         box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
         background-color: #fff;
+    }
+
+    /* 8.1 Image Styling */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Fix for Hero Image: Apply rounding to container to clip the overlay */
+    .split-hero-image {
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        /* This clips the overlay and the image */
+        box-shadow: var(--shadow-soft);
+        position: relative;
+    }
+
+    .split-hero-image img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+    /* Target content images for rounded corners */
+    #AboutUs img,
+    #whyaljeed img {
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-soft);
+        object-fit: cover;
+    }
+
+    /* Specific adjustment for Why Choose Us image to match previous inline style but better */
+    #whyaljeed img {
+        height: 100%;
+        min-height: 500px;
     }
 
     /* 9. Utilities */
@@ -1056,6 +1100,7 @@ header .top-bar i {
     height: 100%;
     object-fit: cover;
     transition: transform 10s ease;
+    border-radius: 20px;
 }
 
 .split-hero-image:hover img {
