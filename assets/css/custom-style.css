@@ -827,6 +827,14 @@ footer {
     margin-left: 15px;
     color: var(--primary-color);
     font-size: 1.2rem;
+    position: relative;
+}
+
+.feature-list-modern .icon-box i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .feature-list-modern .text {
@@ -1051,17 +1059,32 @@ header .top-bar i {
     font-size: 0.9rem !important;
 }
 
+/* About Us Section Image Balance */
+#AboutUs img {
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #AboutUs img {
+        max-height: 300px;
+        margin-bottom: 30px;
+    }
+}
+
 /* --- Split Hero Section (New Redesign) --- */
 .split-hero-section {
     position: relative;
     overflow: hidden;
-    min-height: 80vh;
-    /* Reduced from 100vh */
+    min-height: 70vh;
+    /* Further reduced for better text-image balance */
     display: flex;
     align-items: center;
     background-color: #fff;
     padding-top: 60px;
-    /* Reduced from 80px */
 }
 
 .split-hero-grid {
@@ -1087,8 +1110,8 @@ header .top-bar i {
     flex: 0 0 50%;
     max-width: 50%;
     position: relative;
-    min-height: 400px;
-    /* Reduced from 500px */
+    min-height: 350px;
+    /* Reduced height, more width */
     overflow: hidden;
 }
 
@@ -1101,6 +1124,7 @@ header .top-bar i {
     object-fit: cover;
     transition: transform 10s ease;
     border-radius: 20px;
+    object-position: center;
 }
 
 .split-hero-image:hover img {
@@ -1108,7 +1132,7 @@ header .top-bar i {
 }
 
 .split-hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
     color: var(--secondary-color);
     line-height: 1.2;
@@ -1212,19 +1236,86 @@ html[dir="rtl"] .split-hero-title {
     }
 }
 
-/* --- Soft Gradient Backgrounds (No Images) --- */
+/* --- Section Separation and Background Fixes --- */
+section {
+    position: relative;
+    margin-bottom: 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    z-index: 1;
+}
+
+/* Specific section spacing */
+.wide-tb-80 {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+}
+
+.wide-tb-100 {
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+}
+
+/* Background fixes for sections with overlays */
 .bg-fixed,
+.bg-scroll,
 .clients-bg,
-.callout-style-1,
-.bg-img-6,
+.bg-img-6 {
+    position: relative;
+}
+
+.bg-fixed .container,
+.bg-scroll .container,
+.clients-bg .container,
+.bg-img-6 .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Stats section specific fixes */
+section.bg-fixed .counter-style-1 {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--secondary-color);
+}
+
+/* Clients section text fixes */
+section.clients-bg h1 {
+    color: #fff !important;
+}
+
+/* Callout section text fixes */
+section.bg-img-6 h4,
+section.bg-img-6 .center-text {
+    color: #fff !important;
+}
+
+/* --- Soft Gradient Backgrounds (Keep User's Background Images) --- */
+/* Only remove backgrounds from sections that don't need them */
 #whyaljeed {
     background-image: none !important;
-    background: linear-gradient(135deg, #ffffff 0%, #f4f7f6 100%) !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+}
+
+/* Keep the background images for sections that user restored */
+.bg-fixed,
+.clients-bg,
+.bg-img-6 {
+    /* Keep the background images as restored by user */
 }
 
 .bg-overlay {
-    display: none !important;
-    /* Remove dark overlays since we now have light backgrounds */
+    display: block !important;
+    /* Show overlays for sections with background images */
 }
 
 /* Specific text color adjustments for new light backgrounds */
