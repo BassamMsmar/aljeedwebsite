@@ -1,6 +1,8 @@
 # نشر صفحة "قريباً" على aljeed.sa
 
-الصفحة مستقلة تماماً (ملف `index.html` + مجلد `assets/`) ولا تعتمد على باقي ملفات المستودع.
+الصفحة مستقلة تماماً (ملف `index.html` + ملف `sw.js` + مجلد `assets/`) ولا تعتمد على باقي ملفات المستودع.
+
+> **مهم:** `sw.js` يجب أن يبقى في جذر الموقع (`/sw.js`). الموقع القديم كان تطبيق PWA بخدمة عامل (service worker) على نفس المسار، وهذا الملف يمسح الكاش القديم عند الزوار السابقين ويلغي تسجيله ثم يعيد تحميل الصفحة. لا تحذفه في أي نشر قادم.
 
 ## النشر (على السيرفر)
 
@@ -13,7 +15,7 @@ mv website website.bak-$TS
 
 # 2) ضع محتويات مجلد coming-soon/ (index.html و assets/) في مجلد website جديد
 mkdir website
-#   مثال من جهازك:  scp -r coming-soon/index.html coming-soon/assets root@SERVER:/var/www/aljeed-shuhnaty/website/
+#   مثال من جهازك:  scp -r coming-soon/index.html coming-soon/sw.js coming-soon/assets root@SERVER:/var/www/aljeed-shuhnaty/website/
 rm -f website/DEPLOY.md
 
 # 3) نفس صلاحيات المجلد القديم
@@ -26,6 +28,7 @@ chmod -R u=rwX,go=rX website
 ## التحقق
 ```bash
 curl -s https://aljeed.sa/ | grep -o '<title>.*</title>'
+curl -sI https://aljeed.sa/sw.js | head -1   # يجب أن يعيد 200
 curl -sI https://app.aljeed.sa/ | head -1   # يجب ألا يتأثر
 ```
 
